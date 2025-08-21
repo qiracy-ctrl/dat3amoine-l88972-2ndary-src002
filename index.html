@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HLD Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@6.26.0/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0f111e; color: #e0e0e0; margin: 0; font-family: Arial, sans-serif; }
+    #root { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const InfoSection = ({ title }) => (
+      <div className="w-64 h-32 bg-gray-800 p-4 m-2 rounded-lg shadow-lg">
+        <h2 className="text-xl font-bold">{title}</h2>
+        <p className="mt-2">Placeholder content here</p>
+      </div>
+    );
+
+    const MapSection = ({ title }) => {
+      const [mapData, setMapData] = useState("Loading HLD Map...");
+      return (
+        <div className="w-full max-w-4xl bg-gray-800 p-4 m-2 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-bold">{title}</h2>
+          <div className="mt-4 h-96 bg-gray-700 flex items-center justify-center">
+            {mapData}
+          </div>
+        </div>
+      );
+    };
+
+    const Logo = () => (
+      <div className="w-32 h-32 bg-gray-600 rounded-full m-4 flex items-center justify-center">
+        Logo
+      </div>
+    );
+
+    const App = () => (
+      <div className="flex flex-col items-center">
+        <Logo />
+        <MapSection title="HLD Map" />
+        <div className="flex flex-wrap justify-center">
+          <InfoSection title="information" />
+          <InfoSection title="Dark Web Leak Monitor" />
+          <InfoSection title="UN Org) and hacking news and gaming new divided into 3 sections with the top story and when clicked it expands it a bit with out opeing any thing else" />
+          <InfoSection title="weather" />
+        </div>
+      </div>
+    );
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
